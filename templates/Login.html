@@ -2,33 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="/static/login.css">
-
-</head>
+    <title>Register</title>
+        <link rel="stylesheet" href="/static/css/Login.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
 <body>
 <form action="form_login" method="post">
-  <div class="box-form">
-	<div class="left">
-		<div class="overlay">
-		<h1>Hello </h1>
-		<p>this is some description</p>
+  <nav>
+            <div class="container">
+                <a href="Home.html">MentalHealth</a>
+                <ul class="menu">
+                    <li><a href="Journal.html">Journal</a></li>
+                    <li><a href="Activity.html">Activity</a></li>
+                    <li><a href="Media.html">Videos</a></li>
+                    <li><a href="Reminders.html">Reminders</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                </ul>
+                <ul class="menu">
+                    <li><a href="{{url_for('register')}}">Sign Up</a></li>
+                    <li><a href="{{url_for('Login')}}">Login</a></li>
+                    <li><a class='fas fa-user-alt' href="Profile.html"></a></li>
+                </ul>
+                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+            </div>
+        </nav>
+    <div class="userdata">
+            <form action="#" method="post" onsubmit="login()">
+                <h1>Login</h1>
+                <div class="txt">
+                    <input type="text" id="username" name='username' required>
+                    <span></span>
+                    <label for="username">Username</label>
+                </div>
+                <div class="txt">
+                    <input type="password" id="password" name='password' required>
+                    <span></span>
+                    <label for="password">Password</label>
+                </div>
+                <button onsubmit="{{url_for('login')}}" id="login" value="Login">Login</button>
+                <div class="member">
+                    <p>New Here? <a href="{{url_for('register')}}">Register</a></p>
+                </div>
+            </form>
         </div>
-    </div>
-    <div class="right">
-		<h5>Login</h5>
-		<p>Don't have an account? <a href="{{url_for('register')}}">Create Your Account</a> it takes less than a minute</p>
-		<div class="inputs">
-			<input type="text" placeholder="user name" name='username'>
-			<br>
-			<input type="password" placeholder="password" name='password'>
-		</div>
-        <br><br>
 
-        <input type="submit" value="Login">
-    </div>
-  </div>
 <!-- partial -->
 </form>
 <h1>{{info}}</h1>
