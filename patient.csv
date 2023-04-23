@@ -1,4 +1,6 @@
 name,phonenumber,email,mental health,sleep,quality of sleep,physically active,addictions
 Jeshik,8310927855.0,jeshik.purvik@gmail.com,Good,9+hours,Excellent,Light,No
 Abhishek,1234567890.0,abhishek@gmail.com,excellent,7-9hours,excellent,moderate,Once a week
-fgh,123,fgh@123,excellent,7-9hours,good,moderate,no
+fgh,123.0,fgh@123,excellent,7-9hours,good,moderate,no
+mnb,123.0,123@123,excellent,9+hours,excellent,heavy,no
+bvc,123,123@123,excellent,9+hours,excellent,heavy,no

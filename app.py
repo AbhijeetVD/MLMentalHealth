@@ -45,6 +45,9 @@ def registers():
         df.loc[rows, 'phonenumber'] = phone
         df.loc[rows, 'email'] = email
         df.to_csv("patientinfo.csv", index=False)
+        with open(f'{names}.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(["Name", "jtitle","jtext"])
         return render_template('first.html')
     else:
         return render_template('register.html',error="This username is taken")
@@ -157,6 +160,27 @@ def forest():
 @app.route('/journals')
 def journal():
     return render_template("Journal.html")
+
+@app.route('/journals', methods=['POST','GET'])
+def journalz():
+    jtitle=request.form['yus']
+    jtext=request.form['yis']
+    jd=pd.read_csv(f'{names}.csv')
+    jdr=np.array(jd)
+    jdr1=len(jdr)
+    jd.loc[jdr1, 'Name'] = names
+    jd.loc[jdr1, 'jtitle'] = jtitle
+    jd.loc[jdr1, 'jtext'] = jtext
+    jd.to_csv(f"{names}.csv", index=False)
+    return render_template("Journal.html")
+
+@app.route('/journal1')
+def journal2():
+    kl=pd.read_csv(f'{names}.csv')
+    kla=np.array(kl)
+    klax=kla[-1,1]
+    klaz=kla[-1,2]
+    return render_template("journal1.html",xyz=klax,ijk=klaz)
 
 @app.route('/activities')
 def activity():

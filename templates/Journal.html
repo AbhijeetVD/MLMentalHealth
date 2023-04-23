@@ -3,8 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/static/css/Journal.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+<form action="/journals" method="post">
+    <nav>
+            <div class="container">
+                <a href="{{url_for('Home')}}">MentalHealth</a>
+                <ul class="menu">
+                    <li><a href="{{url_for('journal')}}">Journal</a></li>
+                    <li><a href="{{url_for('activity')}}">Activity</a></li>
+                    <li><a href="{{url_for('video')}}">Videos</a></li>
+                    <li><a href="{{url_for('reminder')}}">Reminders</a></li>
+                    <li><a href="{{url_for('service')}}">Services</a></li>
+                </ul>
+                <ul class="menu">
+                    <li><a href="{{url_for('register')}}">Sign Up</a></li>
+                    <li><a href="{{url_for('Login')}}">Login</a></li>
+                    <li><a class='fas fa-user-alt' href="{{url_for('profiles')}}"></a></li>
+                </ul>
+                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+            </div>
+        </nav>
+    <section class="journal">
+            <h1>Journal</h1><br>
+            <p>Hey, you can enter how your day went here:
+            </p><br>
+            <p></p><br>
+            <div class="journal_left">
+                    <input type="text" id="def" name="yus" placeholder="Enter title..."><br>
+                    <input type="text" id="hide" name="yis" placeholder="Enter in your Journal..."><br>
+                    <button onsubmit="{{url_for('journalz')}}" >Add to journal</button>
+                    <a href="{{url_for('journal2')}}">view journal</a>
+                    <br>
+                </div>
+            <div class="journal_right">
 
+            </div>
+        </section>
+
+</form>
 </body>
 </html>
