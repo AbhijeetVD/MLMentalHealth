@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First time questions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/register.css">
+</head>
+<body>
+  <h2>First time questions</h2>
+  <form action='/first' method="POST">
+    <div class="input-box">
+      <p>How would you rate your mental health?</p>
+      <input type="radio" id="Excellent" name="mh" value="1">
+      <label for="Excellent">Excellent</label><br>
+      <input type="radio" id="Good" name="mh" value="2">
+      <label for="Good">Good</label><br>
+      <input type="radio" id="average" name="mh" value="3">
+      <label for="average">Average</label><br>
+      <input type="radio" id="Poor" name="mh" value="4">
+      <label for="Poor">Poor</label><br>
+    </div>
+    <div class="input-box">
+      <p>How many Hours do you sleep?</p>
+      <input type="radio" id="9+" name="sleep" value="1">
+      <label for="9+">9+ hours</label><br>
+      <input type="radio" id="7-9" name="sleep" value="2">
+      <label for="7-9">7-9</label><br>
+      <input type="radio" id="4-6" name="sleep" value="3">
+      <label for="4-6">sleep</label><br>
+      <input type="radio" id="l4" name="sleep" value="4">
+      <label for="l4">less than 4 hours</label><br>
+    </div>
+    <div class="input-box">
+      <p>How is your quality of sleep?</p>
+      <input type="radio" id="Ex" name="slq" value="1">
+      <label for="Ex">Excellent</label><br>
+      <input type="radio" id="G" name="slq" value="2">
+      <label for="G">Good</label><br>
+      <input type="radio" id="a" name="slq" value="3">
+      <label for="a">Average</label><br>
+      <input type="radio" id="P" name="slq" value="4">
+      <label for="P">Poor</label><br>
+    </div>
+    <div class="input-box">
+      <p>How active are you physically?</p>
+      <input type="radio" id="Exe" name="phy" value="1">
+      <label for="Exe">Heavy physical activities</label><br>
+      <input type="radio" id="Ge" name="phy" value="2">
+      <label for="Ge">Moderate physical activities</label><br>
+      <input type="radio" id="ae" name="phy" value="3">
+      <label for="ae">Light physical activities</label><br>
+      <input type="radio" id="Pe" name="phy" value="4">
+      <label for="Pe">No physical activities</label><br>
+    </div>
+    <div class="input-box">
+      <p>Do you Smoke or Drink?</p>
+      <input type="radio" id="no" name="add" value="1">
+      <label for="no">No</label><br>
+      <input type="radio" id="mon" name="add" value="2">
+      <label for="mon">Once a month</label><br>
+      <input type="radio" id="wek" name="add" value="3">
+      <label for="wek">Once a week</label><br>
+      <input type="radio" id="day" name="add" value="4">
+      <label for="day">Everyday</label><br>
+    </div>
+    <div class="input-box button">
+      <input type="submit" value="Next">
+    </div>
+  </form>
+</body>
+</html>

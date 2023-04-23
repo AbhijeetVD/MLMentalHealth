@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<p style="background-image: url('img_girl.jpg):">
+<form action='/predict' method="POST">
+<p>How are you feeling today?</p>
+  <input type="radio" id="happy" name="Mood" value="1">
+  <label for="happy">Happy</label><br>
+  <input type="radio" id="ang" name="Mood" value="2">
+  <label for="ang">Angry</label><br>
+  <input type="radio" id="sad" name="Mood" value="3">
+  <label for="sad">Sad</label><br>
+  <input type="radio" id="anx" name="Mood" value="4">
+  <label for="anx">Anxious</label><br>
+<p>How many people did you talk to today?</p>
+  <input type="radio" id="ha" name="Social" value="1">
+  <label for="ha">0-5</label><br>
+  <input type="radio" id="an" name="Social" value="2">
+  <label for="an">6-12</label><br>
+  <input type="radio" id="sa" name="Social" value="3">
+  <label for="sa">13-20</label><br>
+  <input type="radio" id="an1" name="Social" value="4">
+  <label for="an1">More than 20</label><br>
+<p>Did you exercise today?If so how long?</p>
+  <input type="radio" id="na" name="Phyact" value="1">
+  <label for="na">No</label><br>
+  <input type="radio" id="an2" name="Phyact" value="2">
+  <label for="an2">less than 20 minutes</label><br>
+  <input type="radio" id="sa1" name="Phyact" value="3">
+  <label for="sa1">20-40 minutes</label><br>
+  <input type="radio" id="an3" name="Phyact" value="4">
+  <label for="an3">More than 40 minutes</label><br>
+<input type="submit" value="Next">
+</form><h1>{{finals}}</h1>
+</p>
+</body>
+</html>

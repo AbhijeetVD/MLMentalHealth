@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<p style="background-image: url('img_girl.jpg):">
+    <form action="form_home" method="post">
+    <h1 align="center">Welcome {{name}} !</h1>
+    <input type="submit" value="next">
+    <a href="{{url_for('journal')}}">Journal</a>
+    <a href="{{url_for('activity')}}">Activities</a>
+    <a href="{{url_for('video')}}">Videos</a>
+    <a href="{{url_for('reminder')}}">Reminders</a>
+    <a href="{{url_for('service')}}">services</a>
+    <a href="{{url_for('profiles')}}">profile</a>
+    </form>
+</p>
+
+</body>
+</html>
