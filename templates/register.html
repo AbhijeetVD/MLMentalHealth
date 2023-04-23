@@ -16,7 +16,7 @@
     <h2>Registration</h2>
     <nav>
             <div class="container">
-                <a href="Home.html">MentalHealth</a>
+                <a href="{{url_for('Home')}}">MentalHealth</a>
                 <ul class="menu">
                     <li><a href="{{url_for('journal')}}">Journal</a></li>
                     <li><a href="{{url_for('activity')}}">Activity</a></li>
@@ -73,7 +73,6 @@
                 </div>
             </div>
         </footer>
-        <script type="module" src="/static/js/Register.js"></script>
     </form>
 <h1>{{error}}</h1>
 </body>
