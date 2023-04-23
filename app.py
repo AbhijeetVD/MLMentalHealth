@@ -19,17 +19,17 @@ model=pickle.load(open('model.pkl','rb'))
 
 
 @app.route('/')
-def Login():
+def LoginPage():
     return render_template("Login.html")
 
 
-@app.route('/form_reg')
-def register():
-    return render_template("register.html")
+@app.route('/register')
+def RegisterPage():
+    return render_template("Register.html")
 
 
-@app.route('/form_reg',methods=['POST','GET'])
-def registers():
+@app.route('/register',methods=['POST','GET'])
+def Register():
     global names, pwd, phone, email,name1
     names=request.form['usn']
     name1 = request.form['usn']
@@ -48,12 +48,12 @@ def registers():
         with open(f'{names}.csv', 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Name", "jtitle","jtext"])
-        return render_template('first.html')
+        return render_template('First.html')
     else:
-        return render_template('register.html',error="This username is taken")
+        return render_template('Register.html',error="This username is taken")
 
 @app.route('/first',methods=['POST','GET'])
-def first():
+def First():
     menhel=request.form['mh']
     slep=request.form['sleep']
     slepqual=request.form['slq']
@@ -130,10 +130,10 @@ def first():
                 if adc=='4':
                     dx.loc[ros, 'addictions'] = 'Everyday'
     dx.to_csv("patient.csv", index=False)
-    return render_template('home.html',name=names)
+    return render_template('Home.html',name=names)
 
-@app.route('/form_login',methods=['POST','GET'])
-def login():
+@app.route('/login',methods=['POST','GET'])
+def Login():
     global name1,pwd,names,phone, email
     name1=request.form['username']
     names = request.form['username']
@@ -145,24 +145,24 @@ def login():
             return render_template('Login.html',info='Invalid User')
         else:
 
-            return render_template('home.html',name=name1)
+            return render_template('Home.html',name=name1)
 
 
 
-@app.route('/form_home',methods=['POST','GET'])
-def Home():
-    return render_template("home.html")
+@app.route('/home',methods=['POST','GET'])
+def HomePage():
+    return render_template("Home.html")
 
 @app.route('/predict')
-def forest():
-    return render_template("forest.html")
+def Forest():
+    return render_template("Forest.html")
 
-@app.route('/journals')
-def journal():
+@app.route('/journal')
+def JournalPage():
     return render_template("Journal.html")
 
-@app.route('/journals', methods=['POST','GET'])
-def journalz():
+@app.route('/journal', methods=['POST','GET'])
+def Journal():
     jtitle=request.form['yus']
     jtext=request.form['yis']
     jd=pd.read_csv(f'{names}.csv')
@@ -174,32 +174,32 @@ def journalz():
     jd.to_csv(f"{names}.csv", index=False)
     return render_template("Journal.html")
 
-@app.route('/journal1')
-def journal2():
+@app.route('/viewjournal')
+def viewJournal():
     kl=pd.read_csv(f'{names}.csv')
     kla=np.array(kl)
     klax=kla[-1,1]
     klaz=kla[-1,2]
-    return render_template("journal1.html",xyz=klax,ijk=klaz)
+    return render_template("ViewJournal.html",xyz=klax,ijk=klaz)
 
 @app.route('/activities')
-def activity():
+def ActivityPage():
     return render_template("Activity.html")
 
 @app.route('/vidoes')
-def video():
-    return render_template("videos.html")
+def VideosPage():
+    return render_template("Videos.html")
 
 @app.route('/reminders')
-def reminder():
-    return render_template("reminders.html")
+def RemindersPage():
+    return render_template("Reminders.html")
 
 @app.route('/services')
-def service():
-    return render_template("services.html")
+def ServicesPage():
+    return render_template("Services.html")
 
 @app.route('/profile')
-def profiles():
+def ProfilePage():
     da = pd.read_csv("patientinfo.csv")
     da = np.array(da)
     namee = da[:, 0]
@@ -208,15 +208,15 @@ def profiles():
 
         if (namee[i] == names or namee[i]==name1):
             print(namee[i])
-            return render_template("profile.html", namep=namee[i])
+            return render_template("Profile.html", namep=namee[i])
 
 @app.route('/profile', methods=["POST","GET"])
-def prof():
+def Profile():
     return 0
 
 
 @app.route('/predict',methods=['POST','GET'])
-def predict():
+def Predict():
     print(request.form)
     dx = pd.read_csv("patient.csv")
     xd = np.array(dx)

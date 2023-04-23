@@ -11,24 +11,22 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </head>
     <body>
-    <form action="form_home" method="post">
+    <form action="HomePage" method="post">
         <nav>
             <div class="container">
-                <a href="{{url_for('Home')}}">MentalHealth</a>
+                <a href="{{url_for('HomePage')}}">MentalHealth</a>
                 <ul class="menu">
-                    <li><a href="{{url_for('journal')}}">Journal</a></li>
-                    <li><a href="{{url_for('activity')}}">Activity</a></li>
-                    <li><a href="{{url_for('video')}}">Videos</a></li>
-                    <li><a href="{{url_for('reminder')}}">Reminders</a></li>
-                    <li><a href="{{url_for('service')}}">Services</a></li>
+                    <li><a href="{{url_for('JournalPage')}}">Journal</a></li>
+                    <li><a href="{{url_for('ActivityPage')}}">Activity</a></li>
+                    <li><a href="{{url_for('VideosPage')}}">Videos</a></li>
+                    <li><a href="{{url_for('RemindersPage')}}">Reminders</a></li>
+                    <li><a href="{{url_for('ServicesPage')}}">Services</a></li>
                 </ul>
                 <ul class="menu">
-                    <li><a href="{{url_for('register')}}">Sign Up</a></li>
-                    <li><a href="{{url_for('Login')}}">Login</a></li>
-                    <li><a class='fas fa-user-alt' href="{{url_for('profiles')}}"></a></li>
+                    <li><a href="{{url_for('RegisterPage')}}">Sign Up</a></li>
+                    <li><a href="{{url_for('LoginPage')}}">Login</a></li>
+                    <li><a class='fas fa-user-alt' href="{{url_for('ProfilePage')}}"></a></li>
                 </ul>
-                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
-                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
             </div>
         </nav>
         <header>
@@ -102,7 +100,7 @@
                     <iframe width="350" height="240" src="https://www.youtube.com/embed/rkZl2gsLUp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
-            <a href="Media.html" class="btn1">View more videos</a>
+            <a href="{{url_for('VideosPage')}}" class="btn1">View more videos</a>
         </section>
         <footer class="footer">
             <div class="container footer_container">

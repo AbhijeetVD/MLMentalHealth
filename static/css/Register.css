@@ -1,20 +1,14 @@
 .registeruser{
-    position: relative;
-    top: 5rem;
-    overflow: hidden;
-    height: 70vh;
-    margin-bottom: 5rem;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-.registeruser form{
-    background: rgb(0, 102, 128);
-    padding:2rem 2rem 2rem 2rem;
-    box-sizing: border-box;
-    width: 500px;
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    background-color: rgba(0, 183, 255, 0.546);
+    padding: 2rem 2rem 2rem 2rem;
     border-radius: 10px;
-    box-sizing: border-box;
+    gap:0;
 }
 form .txt{
     position:relative;
