@@ -59,9 +59,15 @@ def First():
     slepqual=request.form['slq']
     act=request.form['phy']
     adc=request.form['add']
+    ages=request.form['age']
+    genders=request.form['gender']
+    countries=request.form['country']
+    famh=request.form['fh']
+    rmwrk=request.form['rw']
     dx = pd.read_csv("patient.csv")
     xd = np.array(dx)
     ros = len(xd)
+    dx.loc[ros,'country'] = countries
     if menhel == '1':
         dx.loc[ros, 'name'] = names
         dx.loc[ros,'phonenumber'] = phone
@@ -129,6 +135,38 @@ def First():
             else:
                 if adc=='4':
                     dx.loc[ros, 'addictions'] = 'Everyday'
+    if ages=='1':
+        dx.loc[ros, 'age'] = '18-28'
+    else:
+        if ages=='2':
+            dx.loc[ros, 'age'] = '29-45'
+        else:
+            if ages=='3':
+                dx.loc[ros, 'age'] = '46-65'
+            else:
+                if ages=='4':
+                    dx.loc[ros, 'age'] = '65+'
+    if genders=='1':
+        dx.loc[ros, 'gender'] = 'male'
+    else:
+        if genders=='2':
+            dx.loc[ros, 'gender'] = 'female'
+        else:
+            if genders=='3':
+                dx.loc[ros, 'gender'] = 'transgender'
+            else:
+                if genders=='4':
+                    dx.loc[ros, 'gender'] = 'prefer not to say'
+    if famh=='1':
+        dx.loc[ros, 'family history'] = 'Yes'
+    else:
+        if famh=='2':
+            dx.loc[ros, 'family history'] = 'No'
+    if rmwrk=='1':
+        dx.loc[ros, 'remote work'] = 'Yes'
+    else:
+        if rmwrk=='2':
+            dx.loc[ros, 'remote work'] = 'No'
     dx.to_csv("patient.csv", index=False)
     return render_template('Home.html',name=names)
 
@@ -180,12 +218,7 @@ def viewJournal():
     kla=np.array(kl)
     klax=kla[-1,1]
     klaz=kla[-1,2]
-    r2d2=pd.read_csv('patient.csv')
-    r2d3=np.array(r2d2)
-    lenth= len(r2d3)
-    for i in range(0,lenth):
-        if names==r2d3[i,0]:
-            return render_template("ViewJournal.html",namee1=names,ph1=r2d3[i,1],email1=r2d3[i,2] ,mhe=r2d3[i,3] ,slep1=r2d3[i,4] ,qos=r2d3[i,5] ,phya=r2d3[i,6] ,adit=r2d3[i,7] , xyz = klax, ijk = klaz)
+    return render_template("ViewJournal.html", xyz = klax, ijk = klaz)
 
 
 @app.route('/activities')
@@ -206,15 +239,13 @@ def ServicesPage():
 
 @app.route('/profile')
 def ProfilePage():
-    da = pd.read_csv("patientinfo.csv")
-    da = np.array(da)
-    namee = da[:, 0]
-    lent = len(namee)
-    for i in range(0, lent):
-
-        if (namee[i] == names or namee[i]==name1):
-            print(namee[i])
-            return render_template("Profile.html", namep=namee[i])
+    r2d2 = pd.read_csv('patient.csv')
+    r2d3 = np.array(r2d2)
+    lenth = len(r2d3)
+    for i in range(0, lenth):
+        if name1 == r2d3[i, 0]:
+            return render_template("Profile.html", namep=name1, ph1=r2d3[i, 1], em1=r2d3[i, 2], Age=r2d3[i, 8],
+                                   gender=r2d3[i, 9], country=r2d3[i, 10], family=r2d3[i, 11], remote=r2d3[i, 12])
 
 @app.route('/profile', methods=["POST","GET"])
 def Profile():
