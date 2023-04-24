@@ -32,6 +32,7 @@ def RegisterPage():
 def Register():
     global names, pwd, phone, email,name1
     names=request.form['usn']
+    username=request.form['name03']
     name1 = request.form['usn']
     pwd=request.form['psd']
     phone=request.form['phn']
