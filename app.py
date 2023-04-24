@@ -180,7 +180,13 @@ def viewJournal():
     kla=np.array(kl)
     klax=kla[-1,1]
     klaz=kla[-1,2]
-    return render_template("ViewJournal.html",xyz=klax,ijk=klaz)
+    r2d2=pd.read_csv('patient.csv')
+    r2d3=np.array(r2d2)
+    lenth= len(r2d3)
+    for i in range(0,lenth):
+        if names==r2d3[i,0]:
+            return render_template("ViewJournal.html",namee1=names,ph1=r2d3[i,1],email1=r2d3[i,2] ,mhe=r2d3[i,3] ,slep1=r2d3[i,4] ,qos=r2d3[i,5] ,phya=r2d3[i,6] ,adit=r2d3[i,7] , xyz = klax, ijk = klaz)
+
 
 @app.route('/activities')
 def ActivityPage():
