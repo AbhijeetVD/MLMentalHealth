@@ -288,12 +288,12 @@ def Predict():
             output = '{0:.{1}f}'.format(prediction[0][1], 2)
 
             if output > str(0.7):
-                return render_template('Login.html')
+                return render_template('services.html')
             else:
                 if output > str(0.4) and output <= str(0.6):
-                    return render_template('Login.html')
+                    return render_template('Activity.html')
                 else:
-                    return render_template('Login.html')
+                    return render_template('Journal.html')
 
 
     return render_template("forest.html")
