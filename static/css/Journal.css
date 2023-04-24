@@ -6,17 +6,41 @@
     background-color: var(--color-bg2);
 }
 .journal{
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 12rem;
+    padding-right: 12rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 button{
     width:100%;
     border-radius: 10px;
     padding: 1rem;
 }
-#hide{
-    width: 100%;
+.journalCon{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#def{
     font-size: 20px;
+    border-radius: 10px;
+    height: 5vh;
+    width: 70%;
+}
+#hide{
+    font-size: 20px;
+    border-radius: 10px;
+    height: 40vh;
+    width:70%;
+}
+#hre{
+    font-size: 20px;
+}
+#jorbtn{
+    width: 70%;
+}
+.viewJor{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 5rem;
+    margin-left: 8rem;
 }

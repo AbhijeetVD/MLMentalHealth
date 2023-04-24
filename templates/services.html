@@ -2,58 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Services</title>
+    <link rel="stylesheet" href="/static/css/Services.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 <form action="/services" method="POST">
-    <div>
+    <nav>
+        <div class="container">
+            <a href="{{url_for('HomePage')}}">MentalHealth</a>
+            <ul class="menu">
+                <li><a href="{{url_for('JournalPage')}}">Journal</a></li>
+                <li><a href="{{url_for('ActivityPage')}}">Activity</a></li>
+                <li><a href="{{url_for('VideosPage')}}">Videos</a></li>
+                <li><a href="{{url_for('RemindersPage')}}">Reminders</a></li>
+                <li><a href="{{url_for('ServicesPage')}}">Services</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="{{url_for('RegisterPage')}}">Sign Up</a></li>
+                <li><a href="{{url_for('LoginPage')}}">Login</a></li>
+                <li><a class='fas fa-user-alt' href="{{url_for('ProfilePage')}}"></a></li>
+            </ul>
+            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+        </div>
+    </nav>
+    <div class="services">
+    <div class="doc">
         <img src="/static/images/imj1.jpg">
-        <h1>Dr. Kapur B</h1>
-        <h3>psychiatrist</h3>
-        <h3>45 years experience overall</h3>
-        <h3>Hebbal,Bangalore  Manipal Hospital</h3>
-        <h3>₹2130 Consultation fee at clinic</h3>
+        <p><b>Dr. Kapur B</b></p>
+        <p>psychiatrist</p>
+        <p>45 years experience overall</p>
+        <p>Hebbal,Bangalore  Manipal Hospital</p>
+        <p>₹2130 Consultation fee at clinic</p>
     </div>
-    <div>
+    <div class="doc">
         <img src="/static/images/imj2.jpg">
-        <h1>Dr. Shobha Krishna</h1>
-        <h3>psychiatrist</h3>
-        <h3>31 Years Experience Overall  (16 years as specialist)</h3>
-        <h3>Jayanagar,Bangalore  Apollo Speciality Hospitals + 3 more</h3>
-        <h3>₹1500 Consultation fee at clinic</h3>
+        <p><b>Dr. Shobha Krishna</b></p>
+        <p>psychiatrist</p>
+        <p>31 Years Experience Overall  (16 years as specialist)</p>
+        <p>Jayanagar,Bangalore  Apollo Speciality Hospitals + 3 more</p>
+        <p>₹1500 Consultation fee at clinic</p>
     </div>
-    <div>
+    <div class="doc">
         <img src="/static/images/imj3.jpg">
-        <h1>Dr. V Srinivas Reddy</h1>
-        <h3>psychiatrist</h3>
-        <h3>29 Years Experience Overall  (17 years as specialist)</h3>
-        <h3>Bannerghatta Road,Bangalore  Apollo Hospital + 1 more</h3>
-        <h3>₹1400 Consultation fee at clinic</h3>
+        <p><b>Dr. V Srinivas Reddy</b></p>
+        <p>psychiatrist</p>
+        <p>29 Years Experience Overall  (17 years as specialist)</p>
+        <p>Bannerghatta Road,Bangalore  Apollo Hospital + 1 more</p>
+        <p>₹1400 Consultation fee at clinic</p>
     </div>
-    <div>
+    <div class="doc">
         <img src="/static/images/imj4.jpg">
-        <h1>Dr. Manjunath H</h1>
-        <h3>psychiatrist</h3>
-        <h3>24 Years Experience Overall  (9 years as specialist)</h3>
-        <h3>Indiranagar,Bangalore  Apollo Clinic + 1 more</h3>
-        <h3>₹800 Consultation fee at clinic</h3>
+        <p><b>Dr. Manjunath H</b></p>
+        <p>psychiatrist</p>
+        <p>24 Years Experience Overall  (9 years as specialist)</p>
+        <p>Indiranagar,Bangalore  Apollo Clinic + 1 more</p>
+        <p>₹800 Consultation fee at clinic</p>
     </div>
-    <div>
+    <div class="doc">
         <img src="/static/images/imj5.jpg">
-        <h1>Dr. Anand Jayaraman</h1>
-        <h3>psychiatrist</h3>
-        <h3>26 years experience overall</h3>
-        <h3>Manipal Hospital, Millers Road + 3more</h3>
-        <h3>₹1500 Consultation fee at clinic</h3>
+        <p><b>Dr. Anand Jayaraman</b></p>
+        <p>psychiatrist</p>
+        <p>26 years experience overall</p>
+        <p>Manipal Hospital, Millers Road + 3more</p>
+        <p>₹1500 Consultation fee at clinic</p>
     </div>
-    <div>
+    <div class="doc">
         <img src="/static/images/imj6.jpg">
-        <h1>Dr. Vijay Mehtry</h1>
-        <h3>Psychiatrist, Addiction Psychiatrist, Neuropsychiatrist</h3>
-        <h3>15 Years Experience Overall  (9 years as specialist)</h3>
-        <h3>Phoenix Psychiatry & Psychotherapy + 1 more</h3>
-        <h3>₹800 Consultation fee at clinic</h3>
+        <p><b>Dr. Vijay Mehtry</b></p>
+        <p>Psychiatrist, Addiction Psychiatrist, Neuropsychiatrist</p>
+        <p>15 Years Experience Overall  (9 years as specialist)</p>
+        <p>Phoenix Psychiatry & Psychotherapy + 1 more</p>
+        <p>₹800 Consultation fee at clinic</p>
     </div>
+</div>
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="items">
+                <h3>Contact Us</h3>
+                <a href="#"><i class="fas fa-phone"></i> +91 9876543210  </a><br>
+                <a href="mailto:deshpande007123@gmail.com" ><i class="fas fa-envelope"></i> abc@gmail.com  </a><br>
+            </div>
+        </div>
+    </footer>
 </form>
 </body>
 </html>

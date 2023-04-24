@@ -214,7 +214,7 @@ def Forest():
 def JournalPage():
     return render_template("Journal.html")
 
-@app.route('/journal', methods=['POST','GET'])
+@app.route('/journals', methods=['POST','GET'])
 def Journal():
     jtitle=request.form['yus']
     jtext=request.form['yis']

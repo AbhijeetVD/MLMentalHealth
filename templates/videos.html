@@ -2,12 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Videos</title>
+    <link rel="stylesheet" href="/static/css/Media.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 <form action="/videos" method="post">
-    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-    <iframe width="420" height="345" src="https://cdn.jwplayer.com/previews/ZCAJxyJN"></iframe>
+    <nav>
+        <div class="container">
+            <a href="{{url_for('HomePage')}}">MentalHealth</a>
+            <ul class="menu">
+                <li><a href="{{url_for('JournalPage')}}">Journal</a></li>
+                <li><a href="{{url_for('ActivityPage')}}">Activity</a></li>
+                <li><a href="{{url_for('VideosPage')}}">Videos</a></li>
+                <li><a href="{{url_for('RemindersPage')}}">Reminders</a></li>
+                <li><a href="{{url_for('ServicesPage')}}">Services</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="{{url_for('RegisterPage')}}">Sign Up</a></li>
+                <li><a href="{{url_for('LoginPage')}}">Login</a></li>
+                <li><a class='fas fa-user-alt' href="{{url_for('ProfilePage')}}"></a></li>
+            </ul>
+            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+        </div>
+    </nav>
+    <div class="media-container">
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/ga-MniJxQz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/O9qRyFOLdQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/1I9ADpXbD6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/rkZl2gsLUp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/U9YKY7fdwyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/thcEuMDWxoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/ZToicYcHIOU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/GNWaWJm1A1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/COp7BR_Dvps" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/3QIfkeA6HBY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/mJW7dYXPZ2o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/vix0NbikS5o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/fRDccGSLE9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/yTL_bNvXJ9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/-GXfLY4-d8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="mediacon">
+            <iframe width="350" height="240" src="https://www.youtube.com/embed/YPG_6618sWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="items">
+                <h3>Contact Us</h3>
+                <a href="#"><i class="fas fa-phone"></i> +91 9876543210  </a><br>
+                <a href="mailto:deshpande007123@gmail.com" ><i class="fas fa-envelope"></i> abc@gmail.com  </a><br>
+            </div>
+        </div>
+    </footer>
 </form>
 </body>
+<script src="/static/js/main.js"></script>
 </html>

@@ -37,18 +37,23 @@
             <p>Hey, you can enter how your day went here:
             </p><br>
             <p></p><br>
-            <div class="journal_left">
+            <div class="journalCon">
                     <input type="text" id="def" name="yus" placeholder="Enter title..."><br>
                     <input type="text" id="hide" name="yis" placeholder="Enter in your Journal..."><br>
-                    <button onsubmit="{{url_for('JournalPage')}}" >Add to journal</button>
-                    <a href="{{url_for('viewJournal')}}">view journal</a>
+                    <button id="jorbtn" onsubmit="{{url_for('JournalPage')}}" >Add to journal</button>
+                    <a href="{{url_for('viewJournal')}}" id="hre">view journal</a>
                     <br>
                 </div>
-            <div class="journal_right">
-
-            </div>
         </section>
-
+        <footer class="footer">
+            <div class="container footer_container">
+                <div class="items">
+                    <h3>Contact Us</h3>
+                    <a href="#"><i class="fas fa-phone"></i> +91 9876543210  </a><br>
+                    <a href="mailto:deshpande007123@gmail.com" ><i class="fas fa-envelope"></i> abc@gmail.com  </a><br>
+                </div>
+            </div>
+        </footer>
 </form>
 </body>
 </html>

@@ -5,30 +5,18 @@
     width: 100%;
     background-color: var(--color-bg2);
 }
-.title{
-    margin-left: 8rem;
-}
-.pro{
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    height: 50vh;
-    margin-left: 8rem;
-    margin-right: 8rem;
-    padding-left: 2rem;
-    border-radius: 10px;
-    background-color: teal;
-}
 .profile{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12rem;
 }
-.photo{
-    height: 100px;
-    width: 60px;
+p{
+    font-size: larger;
 }
-.information{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-.name{
-    
+table{
+    background-color: rgb(83, 97, 255);
+    border-radius: 10px;
+    padding: 2rem 2rem 2rem 2rem;
+    width: 70%;
 }
