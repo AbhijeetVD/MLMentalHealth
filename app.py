@@ -64,6 +64,20 @@ def First():
     countries=request.form['country']
     famh=request.form['fh']
     rmwrk=request.form['rw']
+    dx1=pd.read_csv("ml1.csv")
+    dxt=np.array(dx1)
+    dxr=len(dxt)
+    dx1.loc[dxr, 'name']=names
+    dx1.loc[dxr, 'mental health']=menhel
+    dx1.loc[dxr, 'sleep'] = slep
+    dx1.loc[dxr, 'sleep quality'] = slepqual
+    dx1.loc[dxr, 'physically active'] = act
+    dx1.loc[dxr, 'addictions'] = adc
+    dx1.loc[dxr, 'age'] = ages
+    dx1.loc[dxr, 'gender'] = genders
+    dx1.loc[dxr, 'family history'] = famh
+    dx1.loc[dxr, 'remote work'] = rmwrk
+    dx1.to_csv("ml1.csv",index=False)
     dx = pd.read_csv("patient.csv")
     xd = np.array(dx)
     ros = len(xd)
@@ -255,135 +269,34 @@ def Profile():
 @app.route('/predict',methods=['POST','GET'])
 def Predict():
     print(request.form)
-    dx = pd.read_csv("patient.csv")
+    dx = pd.read_csv("ml1.csv")
     xd = np.array(dx)
     xd1=xd[1:,0]
-    xd2 = xd[1:, 3:]
+    print(xd1)
+    xd2 = xd[1:, 1:]
     leng = len(xd1)
     int_features = [int(x) for x in request.form.values()]
-    for i in range(0,leng):
-        if(xd1[i] == names or xd1[i] == name1):
-            print(xd1[i])
-            if(xd2[i][0] == 'excellent'):
-                a=1
-                int_features.append(a)
-                break
-            else:
-                if(xd2[i][0] == 'good'):
-                    a=2
-                    int_features.append(a)
-                    break
-                else:
-                    if (xd2[i][0] == 'average'):
-                        a=3
-                        int_features.append(a)
-                        break
-                    else:
-                        if (xd2[i][0] == 'poor'):
-                            a=4
-                            int_features.append(a)
-                            break
-    for i in range(0,leng):
-        if(xd1[i] == names or xd1[i] == name1):
-            print(xd1[i])
-            if(xd2[i][1] == '9+hours'):
-                b=1
-                int_features.append(b)
-                break
-            else:
-                if(xd2[i][1] == '7-9hours'):
-                    b=2
-                    int_features.append(b)
-                    break
-                else:
-                    if (xd2[i][1] == '4-6hours'):
-                        b=3
-                        int_features.append(b)
-                        break
-                    else:
-                        if (xd2[i][1] == '>4hours'):
-                            b=4
-                            int_features.append(b)
-                            break
+    int_featuresa = np.array(int_features)
     for i in range(0, leng):
-        if (xd1[i] == names or xd1[i] == name1):
-            print(xd1[i])
-            if (xd2[i][2] == 'excellent'):
-                c = 1
-                int_features.append(c)
-                break
-            else:
-                if (xd2[i][2] == 'good'):
-                    c = 2
-                    int_features.append(c)
-                    break
-                else:
-                    if (xd2[i][2] == 'average'):
-                        c = 3
-                        int_features.append(c)
-                        break
-                    else:
-                        if (xd2[i][2] == 'poor'):
-                            c = 4
-                            int_features.append(c)
-                            break
-    for i in range(0, leng):
-        if (xd1[i] == names or xd1[i] == name1):
-            print(xd1[i])
-            if (xd2[i][3] == 'heavy'):
-                d = 1
-                int_features.append(d)
-                break
-            else:
-                if (xd2[i][3] == 'moderate'):
-                    d = 2
-                    int_features.append(d)
-                    break
-                else:
-                    if (xd2[i][3] == 'light'):
-                        d = 3
-                        int_features.append(d)
-                        break
-                    else:
-                        if (xd2[i][3] == 'no'):
-                            d = 4
-                            int_features.append(d)
-                            break
-    for i in range(0, leng):
-        if (xd1[i] == names or xd1[i] == name1):
-            print(xd1[i])
-            if (xd2[i][4] == 'no'):
-                e = 1
-                int_features.append(e)
-                break
-            else:
-                if (xd2[i][4] == 'Once a month'):
-                    e = 2
-                    int_features.append(e)
-                    break
-                else:
-                    if (xd2[i][4] == 'Once a week'):
-                        e = 3
-                        int_features.append(e)
-                        break
-                    else:
-                        if (xd2[i][4] == 'Everyday'):
-                            e = 4
-                            int_features.append(e)
-                            break
-    final=[np.array(int_features)]
-    print(int_features)
-    print(final)
-    prediction=model.predict_proba(final)
-    output='{0:.{1}f}'.format(prediction[0][1], 2)
+        if name1 == xd1[i]:
+            new = np.append(int_featuresa, xd2[i, :])
+            new = new.astype('int')
+            print(new)
+            final = [np.array(new)]
+            print(final)
+            prediction = model.predict_proba(final)
+            output = '{0:.{1}f}'.format(prediction[0][1], 2)
 
-    if output>str(0.7):
-        return render_template('Login.html')
-    else:
-        if output>str(0.4) and output<=str(0.6):
-            return render_template('Login.html')
-        else:
-            return render_template('Login.html')
+            if output > str(0.7):
+                return render_template('Login.html')
+            else:
+                if output > str(0.4) and output <= str(0.6):
+                    return render_template('Login.html')
+                else:
+                    return render_template('Login.html')
+
+
+    return render_template("forest.html")
 
 
 if __name__ == '__main__':
