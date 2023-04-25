@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Daily Questions</title>
+    <link rel="stylesheet" href="/static/css/Questions.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav>
@@ -24,6 +31,9 @@
         </div>
     </nav>
 <form action='/predict' method="POST">
+<div class="forest">
+  <h1>Daily Questions</h1>
+  <div class="question">
 <p>How are you feeling today?</p>
   <input type="radio" id="happy" name="Mood" value="1">
   <label for="happy">Happy</label><br>
@@ -33,6 +43,8 @@
   <label for="sad">Sad</label><br>
   <input type="radio" id="anx" name="Mood" value="4">
   <label for="anx">Anxious</label><br>
+  </div>
+  <div class="question">
 <p>How many people did you talk to today?</p>
   <input type="radio" id="ha" name="Social" value="1">
   <label for="ha">0-5</label><br>
@@ -42,6 +54,8 @@
   <label for="sa">13-20</label><br>
   <input type="radio" id="an1" name="Social" value="4">
   <label for="an1">More than 20</label><br>
+  </div>
+  <div class="question">
 <p>Did you exercise today?If so how long?</p>
   <input type="radio" id="na" name="Phyact" value="1">
   <label for="na">No</label><br>
@@ -51,6 +65,8 @@
   <label for="sa1">20-40 minutes</label><br>
   <input type="radio" id="an3" name="Phyact" value="4">
   <label for="an3">More than 40 minutes</label><br>
+  </div>
+  <div class="question">
 <p>How well did you sleep yesterday</p>
   <input type="radio" id="s1" name="slep1" value="1">
   <label for="s1">Perfect</label><br>
@@ -60,10 +76,22 @@
   <label for="s3">Barely</label><br>
   <input type="radio" id="s4" name="slep1" value="1">
   <label for="s4">Not enough</label><br>
-
-<input type="submit" value="Next">
+  </div>
+    <div class="buttons">
+<input type="submit" value="<-Next->">
+    </div>
+    <h1>your mental health score = {{sc}}</h1>
+  </p>
+</div>
 </form><h1>{{finals}}</h1>
-</p>
-<h1>your mental health score = {{sc}}</h1>
 </body>
+<footer class="footer">
+  <div class="container footer_container">
+      <div class="items">
+          <h3>Contact Us</h3>
+          <a href="#"><i class="fas fa-phone"></i> +91 9876543210  </a><br>
+          <a href="mailto:deshpande007123@gmail.com" ><i class="fas fa-envelope"></i> abc@gmail.com  </a><br>
+      </div>
+  </div>
+</footer>
 </html>
