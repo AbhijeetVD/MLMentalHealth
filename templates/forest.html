@@ -5,7 +5,24 @@
     <title>Main</title>
 </head>
 <body>
-<p style="background-image: url('img_girl.jpg):">
+<nav>
+        <div class="container">
+            <a href="{{url_for('HomePage')}}">MentalHealth</a>
+            <ul class="menu">
+                <li><a href="{{url_for('JournalPage')}}">Journal</a></li>
+                <li><a href="{{url_for('ActivityPage')}}">Activity</a></li>
+                <li><a href="{{url_for('VideosPage')}}">Videos</a></li>
+                <li><a href="{{url_for('RemindersPage')}}">Reminders</a></li>
+                <li><a href="{{url_for('ServicesPage')}}">Services</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="{{url_for('LoginPage')}}">Logout</a></li>
+                <li><a class='fas fa-user-alt' href="{{url_for('ProfilePage')}}"></a></li>
+            </ul>
+            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+        </div>
+    </nav>
 <form action='/predict' method="POST">
 <p>How are you feeling today?</p>
   <input type="radio" id="happy" name="Mood" value="1">
@@ -47,5 +64,6 @@
 <input type="submit" value="Next">
 </form><h1>{{finals}}</h1>
 </p>
+<h1>your mental health score = {{sc}}</h1>
 </body>
 </html>

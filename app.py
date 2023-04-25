@@ -17,7 +17,6 @@ app = Flask(__name__)
 model=pickle.load(open('model.pkl','rb'))
 
 
-
 @app.route('/')
 def LoginPage():
     return render_template("Login.html")
@@ -216,6 +215,7 @@ def JournalPage():
 
 @app.route('/journals', methods=['POST','GET'])
 def Journal():
+    print(names)
     jtitle=request.form['yus']
     jtext=request.form['yis']
     jd=pd.read_csv(f'{names}.csv')
@@ -229,11 +229,14 @@ def Journal():
 
 @app.route('/viewjournal')
 def viewJournal():
+    print(names)
     kl=pd.read_csv(f'{names}.csv')
     kla=np.array(kl)
-    klax=kla[-1,1]
-    klaz=kla[-1,2]
+    klar=len(kla)
+    klax=kla[-1:,1]
+    klaz=kla[-1:,2]
     return render_template("ViewJournal.html", xyz = klax, ijk = klaz)
+
 
 
 @app.route('/activities')
@@ -287,14 +290,14 @@ def Predict():
             print(final)
             prediction = model.predict_proba(final)
             output = '{0:.{1}f}'.format(prediction[0][1], 2)
-
+            output1= float(output)
             if output > str(0.7):
-                return render_template('services.html')
+                return render_template('forest.html',sc=100-(output1*100))
             else:
                 if output > str(0.4) and output <= str(0.6):
-                    return render_template('Activity.html')
+                    return render_template('forest.html',sc=100-(output1*100))
                 else:
-                    return render_template('Journal.html')
+                    return render_template('forest.html',sc=100-(output1*100))
 
 
     return render_template("forest.html")
