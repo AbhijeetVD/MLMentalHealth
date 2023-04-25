@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Daily Questions</title>
+    <title>Questionare</title>
     <link rel="stylesheet" href="/static/css/Questions.css">
         <link rel="stylesheet" href="/static/css/main.css">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -14,12 +14,10 @@
 <body>
 <nav>
         <div class="container">
-            <a href="{{url_for('HomePage')}}">MentalHealth</a>
+            <a href="{{url_for('HomePage')}}">MentalHealthCompanion</a>
             <ul class="menu">
                 <li><a href="{{url_for('JournalPage')}}">Journal</a></li>
-                <li><a href="{{url_for('ActivityPage')}}">Activity</a></li>
                 <li><a href="{{url_for('VideosPage')}}">Videos</a></li>
-                <li><a href="{{url_for('RemindersPage')}}">Reminders</a></li>
                 <li><a href="{{url_for('ServicesPage')}}">Services</a></li>
             </ul>
             <ul class="menu">
@@ -76,6 +74,17 @@
   <label for="s3">Barely</label><br>
   <input type="radio" id="s4" name="slep1" value="1">
   <label for="s4">Not enough</label><br>
+  </div>
+    <div class="question">
+<p>How was your day overall until now?</p>
+  <input type="radio" id="k1" name="do" value="1">
+  <label for="k1">Excellent</label><br>
+   <input type="radio" id="k2" name="do" value="1">
+  <label for="k2">Good</label><br>
+  <input type="radio" id="k3" name="do" value="1">
+  <label for="k3">Could be better</label><br>
+  <input type="radio" id="k4" name="do" value="1">
+  <label for="k4">Disastrous</label><br>
   </div>
     <div class="buttons">
 <input type="submit" value="<-Next->">

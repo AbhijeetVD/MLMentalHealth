@@ -45,9 +45,12 @@ def Register():
         df.loc[rows, 'phonenumber'] = phone
         df.loc[rows, 'email'] = email
         df.to_csv("patientinfo.csv", index=False)
-        with open(f'{names}.csv', 'w', newline='') as file:
+        with open(f'static/{names}.csv', 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Name", "jtitle","jtext"])
+        with open(f'static/user/{names}c.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(["Count"])
         return render_template('First.html')
     else:
         return render_template('Register.html',error="This username is taken")
@@ -69,7 +72,7 @@ def First():
     dxr=len(dxt)
     dx1.loc[dxr, 'name']=names
     dx1.loc[dxr, 'mental health']=menhel
-    dx1.loc[dxr, 'sleep'] = slep
+    dx1.loc[dxr, 'day'] = slep
     dx1.loc[dxr, 'sleep quality'] = slepqual
     dx1.loc[dxr, 'physically active'] = act
     dx1.loc[dxr, 'addictions'] = adc
@@ -218,38 +221,58 @@ def Journal():
     print(names)
     jtitle=request.form['yus']
     jtext=request.form['yis']
-    jd=pd.read_csv(f'{names}.csv')
-    jdr=np.array(jd)
-    jdr1=len(jdr)
-    jd.loc[jdr1, 'Name'] = names
-    jd.loc[jdr1, 'jtitle'] = jtitle
-    jd.loc[jdr1, 'jtext'] = jtext
-    jd.to_csv(f"{names}.csv", index=False)
-    return render_template("Journal.html")
+    jd=pd.read_csv(f'static/{names}.csv')
+    jdr = np.array(jd)
+    jdr1 = len(jdr)
+    d12=jdr[:,0]
+    counter=pd.read_csv(f'static/user/{names}c.csv')
+    cr=np.array(counter)
+    crs=len(cr)
+    counter.loc[crs,'Count']= '1'
+    counter.to_csv(f'static/user/{names}c.csv', index=False)
+    for i in range(0, 5):
+        if names in d12 :
+            with open(f'static/{names}{crs}.csv', 'w', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow(["Name", "jtitle", "jtext"])
+                writer.writerow([names, jtitle, jtext])
+            return render_template("Journal.html")
+        else :
+            jd.loc[jdr1, 'Name'] = names
+            jd.loc[jdr1, 'jtitle'] = jtitle
+            jd.loc[jdr1, 'jtext'] = jtext
+            jd.to_csv(f'static/{names}.csv', index=False)
+            return render_template("Journal.html")
+
+
+
 
 @app.route('/viewjournal')
 def viewJournal():
     print(names)
-    kl=pd.read_csv(f'{names}.csv')
+    kl=pd.read_csv(f'static/{names}.csv')
     kla=np.array(kl)
     klar=len(kla)
-    klax=kla[-1:,1]
-    klaz=kla[-1:,2]
-    return render_template("ViewJournal.html", xyz = klax, ijk = klaz)
+    v = {}
+    for i in range(1, 5):
+        v['m1' + str(i)] = pd.read_csv(f'static/{names}{i}.csv')
+        v['m2' + str(i)] = np.array(v['m1' + str(i)])
+        v['m3' + str(i)] = v['m2' + str(i)][:, 1]
+        v['m4' + str(i)] = v['m2' + str(i)][:, 2]
+        print(v['m3' + str(i)])
+    klax=kla[:,1]
+    klaz=kla[:,2]
+    return render_template("ViewJournal.html", xyz = klax, ijk = klaz,ty1=v['m3' + str(1)],ty2=v['m3' + str(2)],ty3=v['m3' + str(3)],ty4=v['m3' + str(4)],ijk2=v['m4' + str(1)],ijk3=v['m4' + str(2)],ijk4=v['m4' + str(3)],ijk5=v['m4' + str(4)])
 
 
 
-@app.route('/activities')
-def ActivityPage():
-    return render_template("Activity.html")
+
 
 @app.route('/vidoes')
 def VideosPage():
     return render_template("Videos.html")
 
-@app.route('/reminders')
-def RemindersPage():
-    return render_template("Reminders.html")
+
 
 @app.route('/services')
 def ServicesPage():
