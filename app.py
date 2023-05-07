@@ -254,16 +254,20 @@ def viewJournal():
     kla=np.array(kl)
     klar=len(kla)
     v = {}
-    for i in range(1, 5):
-        v['m1' + str(i)] = pd.read_csv(f'static/{names}{i}.csv')
-        v['m2' + str(i)] = np.array(v['m1' + str(i)])
-        v['m3' + str(i)] = v['m2' + str(i)][:, 1]
-        v['m4' + str(i)] = v['m2' + str(i)][:, 2]
-        print(v['m3' + str(i)])
+    counter=pd.read_csv(f'static/user/{names}c.csv')
+    cr=np.array(counter)
+    crs=len(cr)
+    rand=cr[0:].astype('int')
+    if crs==5:
+        for i in range(4, 5):
+            v['m1' + str(i)] = pd.read_csv(f'static/{names}{i}.csv')
+            v['m2' + str(i)] = np.array(v['m1' + str(i)])
+            v['m3' + str(i)] = v['m2' + str(i)][:, 1]
+            v['m4' + str(i)] = v['m2' + str(i)][:, 2]
+            print(v['m3' + str(i)])
     klax=kla[:,1]
     klaz=kla[:,2]
-    return render_template("ViewJournal.html", xyz = klax, ijk = klaz,ty1=v['m3' + str(1)],ty2=v['m3' + str(2)],ty3=v['m3' + str(3)],ty4=v['m3' + str(4)],ijk2=v['m4' + str(1)],ijk3=v['m4' + str(2)],ijk4=v['m4' + str(3)],ijk5=v['m4' + str(4)])
-
+    return render_template("ViewJournal.html", xyz = klax, ijk = klaz)
 
 
 
